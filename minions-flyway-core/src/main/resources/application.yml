@@ -1,0 +1,26 @@
+server:
+  port: 54321
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: bfu
+    password: 769420
+    initialization-mode: always
+    schema: classpath:db/init_db_flyway_demo.sql
+  flyway:
+    clean-disabled: true
+    schemas: flyway_demo
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate.show_sql: true
+      hibernate.format_sql: true
+      hibernate.use_sql_comments: false
